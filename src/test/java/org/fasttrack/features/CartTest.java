@@ -16,27 +16,29 @@ import org.openqa.selenium.WebDriver;
         public WebDriver driver;
         @Steps
         private LoginSteps loginSteps;
+        @Steps
         private CartSteps cartSteps;
         @Test
         public void addProductToCart(){
             loginSteps.goToLoginPage();
             loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
             loginSteps.clickLogin();
-            loginSteps.clickShopLink();
-            loginSteps.clickProduct();
-            loginSteps.clickAddToCartButton();
+            cartSteps.clickShopLink();
+            cartSteps.clickProduct();
+            cartSteps.clickAddProductToCart();
 
         }
         @Test
-        public void addCommnetToProduct(){
+        public void addCommentAndRating(){
             loginSteps.goToLoginPage();
             loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
             loginSteps.clickLogin();
-            loginSteps.clickShopLink();
-            loginSteps.clickProduct();
-            loginSteps.clickReviewsButton();
-            loginSteps.setCommentField("eeeeeee");
-            loginSteps.clickSubmitButton();
+            cartSteps.clickShopLink();
+            cartSteps.clickProduct();
+            cartSteps.clickReviewsButton();
+            cartSteps.addRating();
+            cartSteps.setCommentField("eeeeeee");
+            cartSteps.clickSubmitButton();
 
         }
         @Test
@@ -44,11 +46,22 @@ import org.openqa.selenium.WebDriver;
             loginSteps.goToLoginPage();
             loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
             loginSteps.clickLogin();
-            loginSteps.clickShopLink();
-            loginSteps.clickProduct();
-            loginSteps.verifySaleMessage();
+            cartSteps.clickShopLink();
+            cartSteps.clickProduct();
+            cartSteps.verifySaleMessage();
 
         }
+        @Test
+    public void verifyProductIsAddedToCart(){
+            loginSteps.goToLoginPage();
+            loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
+            loginSteps.clickLogin();
+            cartSteps.clickShopLink();
+            cartSteps.clickProduct();
+            cartSteps.clickAddProductToCart();
+            cartSteps.verifyProductIsAddedToCartMessage();
+        }
+
 
 
 }

@@ -21,8 +21,11 @@ public class MyAccountTest {
 
     @Steps
     private LoginSteps loginSteps;
+    @Steps
     private HomepageSteps homepage;
+    @Steps
     private RegisterSteps registerSteps;
+    @Steps
     private MyAccountSteps myAccountSteps;
 
     @Test
@@ -30,57 +33,57 @@ public class MyAccountTest {
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickMyaccountLink();
-        loginSteps.clickDashboardLink();
-        loginSteps.verifyDashboardmessage();
+        myAccountSteps.clickMyaccountLink();
+        myAccountSteps.clickDashboardLink();
+        myAccountSteps.verifyDashboardmessage();
     }
     @Test
     public void verifyDownloadsIsEmpty(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickMyaccountLink();
-        loginSteps.clickDownloadsLink();
-        loginSteps.verifyDownloadsIsEmpty();
+        myAccountSteps.clickMyaccountLink();
+        myAccountSteps.clickDownloadsLink();
+        myAccountSteps.verifyDownloadsIsEmpty();
     }
     @Test
     public void changeFirstName(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickMyaccountLink();
-        loginSteps.clickAccountDetails();
-        loginSteps.changeFirstName("liviutz");
-        loginSteps.saveChangesInMyAccountDetails();
+        myAccountSteps.clickMyaccountLink();
+        myAccountSteps.clickAccountDetails();
+        myAccountSteps.changeFirstName("liviutz");
+        myAccountSteps.saveChangesInMyAccountDetails();
     }
     @Test
     public void changeLastName(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickMyaccountLink();
-        loginSteps.clickAccountDetails();
-        loginSteps.changeLastName("graur");
-        loginSteps.saveChangesInMyAccountDetails(); }
+        myAccountSteps.clickMyaccountLink();
+        myAccountSteps.clickAccountDetails();
+        myAccountSteps.changeLastName("graur");
+        myAccountSteps.saveChangesInMyAccountDetails(); }
         @Test
     public void verifySavedChangesInMyAccount(){
             loginSteps.goToLoginPage();
             loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
             loginSteps.clickLogin();
-            loginSteps.clickMyaccountLink();
-            loginSteps.clickAccountDetails();
-            loginSteps.changeFirstName("liviutz");
-            loginSteps.saveChangesInMyAccountDetails();
-            loginSteps.verifySavedChangesInMyAccount();
+            myAccountSteps.clickMyaccountLink();
+            myAccountSteps.clickAccountDetails();
+            myAccountSteps.changeFirstName("liviutz");
+            myAccountSteps.saveChangesInMyAccountDetails();
+            myAccountSteps.verifySavedChangesInMyAccount();
         }
         @Test
         public void changePassword(){
             loginSteps.goToLoginPage();
             loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
             loginSteps.clickLogin();
-            loginSteps.clickMyaccountLink();
-            loginSteps.clickAccountDetails();
-            loginSteps.changePassword("0035799262872", "431319A431319", "431319A431319");
+            myAccountSteps.clickMyaccountLink();
+            myAccountSteps.clickAccountDetails();
+            myAccountSteps.changePassword("0035799262872", "431319A431319", "431319A431319");
     }
 
        @Test
@@ -88,9 +91,9 @@ public class MyAccountTest {
            loginSteps.goToLoginPage();
            loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
            loginSteps.clickLogin();
-           loginSteps.clickMyaccountLink();
-           loginSteps.clickOrdersLink();
-           loginSteps.checkOrderStatus("hold");
+           myAccountSteps.clickMyaccountLink();
+           myAccountSteps.clickOrdersLink();
+           myAccountSteps.checkOrderStatus("hold");
        }
 
 }

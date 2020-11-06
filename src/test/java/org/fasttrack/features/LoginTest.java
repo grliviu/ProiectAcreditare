@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrack.steps.HomepageSteps;
 import org.fasttrack.steps.LoginSteps;
+import org.fasttrack.steps.MyAccountSteps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -19,12 +20,16 @@ public class LoginTest {
 
     @Steps
     private LoginSteps loginSteps;
+    @Steps
     private HomepageSteps homepage;
+    @Steps
+    private MyAccountSteps myAccountSteps;
     @Test
     public void validLogin(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();}
+
         @Test
     public void verifyValidLoginTest(){
             loginSteps.goToLoginPage();
@@ -41,12 +46,22 @@ public class LoginTest {
         loginSteps.verifyInvalidAdressAndPassword();
     }
 @Test
-    public void logoutTest(){
+    public void logoutFromMetaTest(){
     loginSteps.goToLoginPage();
     loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
     loginSteps.clickLogin();
-    loginSteps.clickLogout();
+    loginSteps.clickMetaLink();
     loginSteps.clickLogoutButton();
+    }
+    @Test
+    public void verifyEmailIsRemembered(){
+        loginSteps.goToLoginPage();
+        loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
+        loginSteps.clickRemembermeButton();
+        loginSteps.clickLogin();
+        loginSteps.clickMetaLink();
+        loginSteps.clickLogoutButton();
+
     }
 }
 

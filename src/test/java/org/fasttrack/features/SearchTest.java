@@ -18,7 +18,9 @@ public class SearchTest {
     public WebDriver driver;
     @Steps
     private SearchSteps searchSteps;
+    @Steps
     private HomepageSteps homepage;
+    @Steps
     private LoginSteps loginSteps;
     @Test
     public void searchProductNoRegister(){
@@ -40,6 +42,13 @@ public class SearchTest {
         searchSteps.setSearchField("belt");
         searchSteps.clickSearchButton();
         searchSteps.verifyProductIsOnTheSiteMessage("belt");
+    }
+    @Test
+    public void verifyProductInList(){
+        searchSteps.clickSearckLink();
+        searchSteps.setSearchField("b");
+        searchSteps.clickSearchButton();
+        searchSteps.verifyProductInList("belt");
     }
 
     }

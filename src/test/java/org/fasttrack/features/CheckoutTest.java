@@ -4,6 +4,7 @@ package org.fasttrack.features;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.fasttrack.steps.CartSteps;
 import org.fasttrack.steps.CheckoutSteps;
 import org.fasttrack.steps.HomepageSteps;
 import org.fasttrack.steps.LoginSteps;
@@ -19,50 +20,57 @@ public class CheckoutTest {
 
     @Steps
     private LoginSteps loginSteps;
+    @Steps
     private HomepageSteps homepage;
+    @Steps
     private CheckoutSteps checkoutSteps;
+    @Steps
+    private CartSteps cartSteps;
 @Test
     public void goToCheckout(){
-loginSteps.goToCheckOut();
+checkoutSteps.goToCheckOut();
 }
 @Test
     public void verifyCheckOutIsEmpty(){
-    loginSteps.goToCheckOut();
-    loginSteps.verifyCheckoutIsEmpty();}
+    checkoutSteps.goToCheckOut();
+    checkoutSteps.verifyCheckoutIsEmpty();}
+
+
+
     @Test
     public void checkoutWithRegistration(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-    loginSteps.clickShopLink();
-    loginSteps.clickProduct();
-    loginSteps.clickAddToCartButton();
-    loginSteps.goToCheckOut();
-    loginSteps.nameForCheckout("Liv", "Gr", "Xerox");
-    loginSteps.countryForCheckout("Romania");
-    loginSteps.streetAdress("Randunelelor , nr 20 ");
-    loginSteps.houseAdress("Casa 2 , sc 2, ap 21");
-    loginSteps.cityAndCounty("Cluj-Napoca", "093948359");
-    loginSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
-    loginSteps.placeOrderButton();
+    cartSteps.clickShopLink();
+    cartSteps.clickProduct();
+    cartSteps.clickAddProductToCart();
+    checkoutSteps.goToCheckOut();
+    checkoutSteps.nameForCheckout("Liv", "Gr", "Xerox");
+    checkoutSteps.countryForCheckout("Romania");
+    checkoutSteps.streetAdress("Randunelelor , nr 20 ");
+    checkoutSteps.houseAdress("Casa 2 , sc 2, ap 21");
+    checkoutSteps.cityAndCounty("Cluj-Napoca", "093948359");
+    checkoutSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
+    checkoutSteps.placeOrderButton();
     }
     @Test
     public void verifyOrderIsReceived(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickShopLink();
-        loginSteps.clickProduct();
-        loginSteps.clickAddToCartButton();
-        loginSteps.goToCheckOut();
-        loginSteps.nameForCheckout("Liv", "Gr", "Xerox");
-        loginSteps.countryForCheckout("Romania");
-        loginSteps.streetAdress("Padurii, 34");
-        loginSteps.houseAdress("Bloc 20 , ap 12");
-        loginSteps.cityAndCounty("Cluj-Napoca", "093948333");
-        loginSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
-        loginSteps.placeOrderButton();
-        loginSteps.verifyReceivedOrder();
+        cartSteps.clickShopLink();
+        cartSteps.clickProduct();
+        cartSteps.clickAddProductToCart();
+        checkoutSteps.goToCheckOut();
+        checkoutSteps.nameForCheckout("Liv", "Gr", "Xerox");
+        checkoutSteps.countryForCheckout("Romania");
+        checkoutSteps.streetAdress("Padurii, 34");
+        checkoutSteps.houseAdress("Bloc 20 , ap 12");
+        checkoutSteps.cityAndCounty("Cluj-Napoca", "093948333");
+        checkoutSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
+        checkoutSteps.placeOrderButton();
+        checkoutSteps.verifyReceivedOrder();
     }
 
     @Test
@@ -70,18 +78,18 @@ loginSteps.goToCheckOut();
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
         loginSteps.clickLogin();
-        loginSteps.clickShopLink();
-        loginSteps.clickProduct();
-        loginSteps.clickAddToCartButton();
-        loginSteps.goToCheckOut();
-        loginSteps.nameForCheckout("", "Gr", "Xerox");
-        loginSteps.countryForCheckout("Romania");
-        loginSteps.streetAdress("Randunelelor , nr 20 ");
-        loginSteps.houseAdress("Casa 2 , sc 2, ap 21");
-        loginSteps.cityAndCounty("Cluj-Napoca", "093948359");
-        loginSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
-        loginSteps.placeOrderButton();
-        loginSteps.verifyEmptyField();
+        cartSteps.clickShopLink();
+        cartSteps.clickProduct();
+        cartSteps.clickAddProductToCart();
+        checkoutSteps.goToCheckOut();
+        checkoutSteps.nameForCheckout("", "Gr", "Xerox");
+        checkoutSteps.countryForCheckout("Romania");
+        checkoutSteps.streetAdress("Randunelelor , nr 20 ");
+        checkoutSteps.houseAdress("Casa 2 , sc 2, ap 21");
+        checkoutSteps.cityAndCounty("Cluj-Napoca", "093948359");
+        checkoutSteps.phoneAndEmail("0034756746476", "oliviu66@yahoo.com");
+        checkoutSteps.placeOrderButton();
+        checkoutSteps.verifyEmptyField();
 
     }
     }

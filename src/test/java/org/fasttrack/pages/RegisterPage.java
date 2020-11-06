@@ -14,7 +14,7 @@ public class RegisterPage extends PageObject {
     private WebElementFacade passWordField;
     @FindBy(css = "#customer_login > div.u-column2.col-2 > form > p.woocommerce-FormRow.form-row > button")
     private WebElementFacade registerButton;
-    @FindBy(css = "#post-7 > div > div > div > p:nth-child(1) > strong:nth-child(1)")
+    @FindBy(css = "#post-7 > div > div > div > p:nth-child(1)")
     private WebElementFacade verifyRegistrationMessage;
     @FindBy(css = "#post-7 > div > div > ul > li")
     private WebElementFacade verifyRegistrationWithNoPassword;

@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import org.fasttrack.pages.HomePage;
 import org.fasttrack.pages.MyAccountPage;
 import org.fasttrack.pages.SearchPage;
+import org.junit.Assert;
 
 public class SearchSteps {
 
@@ -22,7 +23,10 @@ public class SearchSteps {
     @Step
     public void verifyProductIsNotOnTheSiteMessage(){searchPage.verifyProductsIsNotOnTheSiteMessage();}
     @Step
-    public void verifyProductIsOnTheSiteMessage(String searchedWord){searchPage.verifyProductIsOnTheSiteMessage(searchedWord);}
-
+    public void verifyProductIsOnTheSiteMessage(String searchedWord){ searchPage.verifyProductIsOnTheSiteMessage(searchedWord);}
+    @Step
+    public void verifyProductInList(String itemName){
+        Assert.assertTrue(searchPage.findItemInList(itemName));
+    }
 
 }
