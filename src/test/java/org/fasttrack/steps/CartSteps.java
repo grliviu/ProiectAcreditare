@@ -41,7 +41,12 @@ public class CartSteps {
     @Step
     public void addRating(){cart.clickAddRating();}
     @Step
-    public void findItemInListList(String itemName){cart.findItemInList(itemName);}
+    public void findItemInList(String itemName){cart.findItemInList(itemName);}
+    @Step
+    public void selectCategory(){cart.selectCategory();
+    }
+    @Step
+    public void findFirstElement(){cart.findFirstElement();}
 
 
 

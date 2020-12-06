@@ -61,7 +61,15 @@ import org.openqa.selenium.WebDriver;
             cartSteps.clickAddProductToCart();
             cartSteps.verifyProductIsAddedToCartMessage();
         }
-
+        @Test
+    public void showMostExpensiveProduct(){
+            loginSteps.goToLoginPage();
+            loginSteps.enterLoginCredentials("oliviu66@yahoo.ro","0035799262872");
+            loginSteps.clickLogin();
+            cartSteps.clickShopLink();
+            cartSteps.selectCategory();
+            cartSteps.findFirstElement();
+        }
 
 
 }

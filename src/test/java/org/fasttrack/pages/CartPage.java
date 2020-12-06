@@ -6,6 +6,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -49,6 +50,14 @@ public class CartPage extends PageObject {
     private WebElementFacade recentCommnetsLink;
     @FindBy(css = "#recentcomments")
     private List<WebElementFacade> listOfItems;
+    @FindBy(css = "#primary > main > form > select")
+    private WebElementFacade selectCategory;
+
+    public void selectCategory(){
+        selectCategory.selectByValue("price");
+        clickOn(selectCategory);
+    }
+
 
     public boolean findItemInList(String itemName){
         for(WebElementFacade element : listOfItems){
@@ -58,7 +67,13 @@ public class CartPage extends PageObject {
         }
         return false;
     }
+    @FindBy(css = "#primary > main > div > div")
+    private List<WebElementFacade> listOfProducts;
 
+
+    public void findFirstElement(){
+        System.out.println(listOfProducts.get(0));
+    }
 
 
     public void clickRecentCommentsLink(){clickOn(recentCommnetsLink);}

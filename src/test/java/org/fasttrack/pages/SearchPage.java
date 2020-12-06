@@ -28,6 +28,7 @@ public class SearchPage extends PageObject {
     @FindBy(css = "#main")
     private List<WebElementFacade> listOfItems;
 
+
     public boolean findItemInList(String itemName){
         for(WebElementFacade element : listOfItems){
             if(element.findElement(By.cssSelector(" header > h1 > a")).getText().equals(itemName)){

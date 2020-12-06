@@ -18,10 +18,7 @@ public class RegisterTest {
     @Steps
     private RegisterSteps registerSteps;
 
-    @Test
-    public void goToRegisterPage() {
-        registerSteps.goToRegisterPage();
-    }
+
     @Test
     public void registerToSite(){
         registerSteps.goToRegisterPage();

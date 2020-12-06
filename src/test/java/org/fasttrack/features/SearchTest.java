@@ -43,13 +43,7 @@ public class SearchTest {
         searchSteps.clickSearchButton();
         searchSteps.verifyProductIsOnTheSiteMessage("belt");
     }
-    @Test
-    public void verifyProductInList(){
-        searchSteps.clickSearckLink();
-        searchSteps.setSearchField("b");
-        searchSteps.clickSearchButton();
-        searchSteps.verifyProductInList("belt");
-    }
+
 
     }
 

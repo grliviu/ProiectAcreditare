@@ -24,21 +24,20 @@ public class AdminTest {
     @Steps
     private CartPage cartPage;
     @Test
-    public void goToProductCategory(){
+    public void verifyNewAddedProduct(){
         loginSteps.goToLoginPage();
         loginSteps.enterLoginCredentials("admin","parola11");
         loginSteps.clickLogin();
         adminSteps.goToDashboard();
         adminSteps.goToProductSection();
         adminSteps.addNewProduct();
-        adminSteps.addName("miro");
-        //adminSteps.addPrice("30", "23");
+        adminSteps.addName("tresure");
         adminSteps.clickPublishButton();
         adminSteps.goToDashboard();
         searchSteps.clickSearckLink();
-        searchSteps.setSearchField("miro");
+        searchSteps.setSearchField("tresure");
         searchSteps.clickSearchButton();
-        searchSteps.verifyProductIsOnTheSiteMessage("miro");
+        searchSteps.verifyProductIsOnTheSiteMessage("tresure");
     }
 
     @Test
@@ -51,6 +50,9 @@ public class AdminTest {
         adminSteps.goToDashboard();
         cartPage.clickRecentCommentsLink();
         cartPage.findItemInList("oliviu66");
+        adminSteps.goToDashboard();
+
+
 
 
 
